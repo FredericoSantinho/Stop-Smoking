@@ -1,0 +1,12 @@
+apply from: file("$rootDir/gradle/libraries.gradle")
+
+dependencies {
+  api fileTree(dir: 'libs', include: ['*.jar'])
+
+  implementation lib.kotlin
+  implementation lib.rxKotlin
+  implementation lib.junit4
+
+  testImplementation lib.slf4jNop
+  testImplementation lib.mockito
+}
