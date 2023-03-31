@@ -19,10 +19,12 @@ lib.google = ["androidx.core:core-ktx:$ver.ktx",
 ver.compose_ui = "1.4.0"
 ver.activity_compose = "1.7.0"
 ver.material = "1.4.0"
+ver.composeNavigation = "2.5.3"
 lib.google_compose = ["androidx.activity:activity-compose:$ver.activity_compose",
                       "androidx.compose.ui:ui:$ver.compose_ui",
                       "androidx.compose.ui:ui-tooling:$ver.compose_ui",
-                      "androidx.compose.material:material:$ver.material",]
+                      "androidx.compose.material:material:$ver.material",
+                      "androidx.navigation:navigation-compose:$ver.composeNavigation",]
 
 lib.compose_ui_test_junit4 = ["androidx.compose.ui:ui-test-junit4:$ver.compose_ui"]
 lib.compose_ui_test_manifest = "androidx.compose.ui:ui-test-manifest:$ver.compose_ui"
