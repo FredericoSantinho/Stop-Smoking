@@ -45,7 +45,7 @@ fun TopAppBar(navController: NavController, appBarViewModel: AppBarViewModel) {
 				IconButton(modifier = Modifier.constrainAs(configIconC) {
 					linkTo(top = parent.top, bottom = parent.bottom)
 					end.linkTo(parent.end)
-				}, onClick = { appBarViewModel.onSettingsButton() }) {
+				}, onClick = { appBarViewModel.onSettingsButtonClick() }) {
 					Icon(Icons.Filled.Settings, null, tint = Color.White)
 				}
 			}

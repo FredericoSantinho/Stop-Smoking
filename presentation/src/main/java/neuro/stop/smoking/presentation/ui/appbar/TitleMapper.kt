@@ -4,9 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import neuro.stop.smoking.presentation.R
 import neuro.stop.smoking.presentation.ui.daily.cigarettes.DailyCigarettesTitle
-import neuro.stop.smoking.presentation.ui.home.HomeTitle
 import neuro.stop.smoking.presentation.viewmodel.appbar.Title
 import neuro.stop.smoking.presentation.viewmodel.appbar.Title.EmptyTitle
+import neuro.stop.smoking.presentation.viewmodel.home.HomeTitle
 
 @Composable
 fun Title.toPresentation(): String {

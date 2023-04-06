@@ -1,22 +1,14 @@
 package neuro.stop.smoking.presentation.viewmodel.appbar
 
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.State
 
-class AppBarViewModel {
-	val title = mutableStateOf<Title>(Title.EmptyTitle)
+interface AppBarViewModel {
+	val uiEvent: State<UiEvent?>
 
-	private val _uiEvent = AppBarUiEvent()
-	val uiEvent = _uiEvent.uiEvent
+	val title: MutableState<Title>
 
-	fun onSettingsButton() {
-		_uiEvent.navigateToSettings()
-	}
-
-	fun eventConsumed() {
-		_uiEvent.eventConsumed()
-	}
-}
-
-abstract class Title {
-	object EmptyTitle : Title()
+	fun onSettingsButtonClick()
+	fun onNavigateUpClick()
+	fun eventConsumed()
 }

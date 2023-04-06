@@ -3,11 +3,10 @@ apply from: file("$rootDir/gradle/libraries.gradle")
 dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-  testImplementation project(':test')
-
   implementation lib.kotlin
   implementation lib.koinCore
   implementation lib.rxKotlin
+  implementation lib.kotlin_coroutines
 
   testImplementation lib.slf4jNop
   testImplementation lib.junit4

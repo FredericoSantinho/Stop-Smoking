@@ -13,10 +13,18 @@ import neuro.stop.smoking.presentation.ui.main.nav.BottomNavigation
 import neuro.stop.smoking.presentation.ui.main.nav.NavigationGraph
 import neuro.stop.smoking.presentation.ui.theme.StopSmokingTheme
 import neuro.stop.smoking.presentation.viewmodel.appbar.AppBarViewModel
+import neuro.stop.smoking.presentation.viewmodel.appbar.AppBarViewModelImpl
+import neuro.stop.smoking.presentation.viewmodel.main.DummyMainViewModel
+import neuro.stop.smoking.presentation.viewmodel.main.MainViewModel
+import neuro.stop.smoking.presentation.viewmodel.main.MainViewModelImpl
+import org.koin.androidx.compose.getViewModel
 import org.koin.compose.koinInject
 
 @Composable
-fun MainComposable(appBarViewModel: AppBarViewModel = koinInject()) {
+fun MainComposable(
+	mainViewModel: MainViewModel = getViewModel<MainViewModelImpl>(),
+	appBarViewModel: AppBarViewModel = koinInject<AppBarViewModelImpl>()
+) {
 	val navController = rememberNavController()
 
 	Scaffold(
@@ -32,6 +40,6 @@ fun MainComposable(appBarViewModel: AppBarViewModel = koinInject()) {
 @Composable
 fun PreviewMainComposable() {
 	StopSmokingTheme {
-		MainComposable(AppBarViewModel())
+		MainComposable(DummyMainViewModel(), AppBarViewModelImpl())
 	}
 }

@@ -2,4 +2,18 @@
   <string name="app_name">Stop Smoking</string>
   <string name="home_title">Home</string>
   <string name="daily_cigarettes_title">Daily Cigarettes</string>
+
+  <string name="smoked_a_cigarette_at">Smoked a cigarette at:</string>
+  <string name="last_cigarette_minutes">Last cigarette (minutes):</string>
+  <string name="smoked_cigarettes_today">Smoked cigarettes today:</string>
+  <string name="smoke">Smoke</string>
+
+  <string name="ok">OK</string>
+
+  <!-- Error -->
+  <string name="error_title">Error!</string>
+  <string name="error_removing_smoked_cigarette">Error removing smoked cigarette!</string>
+  <string name="error_loading_data">Error loading data!</string>
+  <string name="error_saving_smoked_cigarette">Error saving smoked cigarette!</string>
+  <string name="error_updating_last_cigarette_time">Error updating last cigarette time!</string>
 </resources>
