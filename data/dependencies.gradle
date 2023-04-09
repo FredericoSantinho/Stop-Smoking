@@ -13,6 +13,7 @@ dependencies {
 
   kapt lib.roomCompiler
 
+  testImplementation lib.kotlin_coroutines_test
   testImplementation lib.junit4
   testImplementation lib.koinTest
   testImplementation lib.mockito
