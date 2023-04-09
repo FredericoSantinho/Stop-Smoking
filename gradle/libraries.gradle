@@ -7,6 +7,8 @@ ver.kotlin = "1.7.22"
 ver.kotlin_coroutines = "1.7.1"
 lib.kotlin = "org.jetbrains.kotlin:kotlin-stdlib:$ver.kotlin"
 lib.kotlin_coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${ver.kotlin_coroutines}"
+lib.kotlin_coroutines_test =
+    "org.jetbrains.kotlinx:kotlinx-coroutines-test:${ver.kotlin_coroutines}"
 
 ver.rxKotlin = "3.0.1"
 ver.rxRelay3 = "3.0.1"

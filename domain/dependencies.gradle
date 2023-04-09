@@ -8,6 +8,7 @@ dependencies {
   implementation lib.rxKotlin
   implementation lib.kotlin_coroutines
 
+  testImplementation lib.kotlin_coroutines_test
   testImplementation lib.slf4jNop
   testImplementation lib.junit4
   testImplementation lib.mockito
