@@ -38,4 +38,9 @@ android {
   composeOptions {
     kotlinCompilerExtensionVersion "$ver.kotlin_compiler_extension"
   }
+  testOptions {
+    unitTests {
+      includeAndroidResources = true
+    }
+  }
 }

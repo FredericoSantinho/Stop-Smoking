@@ -81,3 +81,6 @@ lib.room = "androidx.room:room-runtime:$ver.room"
 lib.room_ktx = "androidx.room:room-ktx:$ver.room"
 lib.roomCompiler = "androidx.room:room-compiler:$ver.room"
 lib.roomTest = "androidx.room:room-testing:$ver.room"
+
+ver.robolectric = "4.10.3"
+lib.robolectric = "org.robolectric:robolectric:$ver.robolectric"

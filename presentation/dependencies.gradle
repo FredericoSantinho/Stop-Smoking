@@ -4,6 +4,7 @@ dependencies {
   implementation fileTree(dir: 'libs' + '', include: ["*.jar"])
 
   implementation project(':domain')
+  implementation project(':data')
 
   implementation lib.google
   implementation lib.google_compose
@@ -13,16 +14,18 @@ dependencies {
   implementation lib.rxAndroid
   implementation lib.constraint_layout_compose
 
+  testImplementation lib.kotlin_coroutines_test
   testImplementation lib.junit4
   testImplementation lib.koinTest
   testImplementation lib.mockito
+  testImplementation lib.compose_ui_test_junit4
+  testImplementation lib.compose_ui_test_manifest
+  testImplementation lib.androidx_core_testing
+  testImplementation lib.robolectric
 
   androidTestImplementation lib.googleTest
   androidTestImplementation lib.compose_ui_test_junit4
   androidTestImplementation lib.koinTest
-  testImplementation lib.compose_ui_test_junit4
-  testImplementation lib.compose_ui_test_manifest
-  testImplementation lib.androidx_core_testing
 
   debugImplementation lib.compose_ui_test_manifest
 }
