@@ -1,10 +1,12 @@
 package neuro.stop.smoking.data.di
 
+import neuro.stop.smoking.data.repository.GetStartOfDayRepositoryImpl
 import neuro.stop.smoking.data.repository.NewSmokedCigaretteIdRepositoryImpl
 import neuro.stop.smoking.data.repository.ObserveSmokedCigarettesRepositoryImpl
 import neuro.stop.smoking.data.repository.ObserveStartOfDayRepositoryImpl
 import neuro.stop.smoking.data.repository.RemoveCigaretteRepositoryImpl
 import neuro.stop.smoking.data.repository.SaveSmokedCigaretteRepositoryImpl
+import neuro.stop.smoking.domain.repository.GetStartOfDayRepository
 import neuro.stop.smoking.domain.repository.NewSmokedCigaretteIdRepository
 import neuro.stop.smoking.domain.repository.ObserveSmokedCigarettesRepository
 import neuro.stop.smoking.domain.repository.ObserveStartOfDayRepository
@@ -17,5 +19,6 @@ val repositoryModule = module {
 	factory<SaveSmokedCigaretteRepository> { SaveSmokedCigaretteRepositoryImpl(get()) }
 	factory<ObserveSmokedCigarettesRepository> { ObserveSmokedCigarettesRepositoryImpl(get()) }
 	factory<RemoveCigaretteRepository> { RemoveCigaretteRepositoryImpl(get()) }
+	factory<GetStartOfDayRepository> { GetStartOfDayRepositoryImpl(get()) }
 	factory<ObserveStartOfDayRepository> { ObserveStartOfDayRepositoryImpl(get()) }
 }

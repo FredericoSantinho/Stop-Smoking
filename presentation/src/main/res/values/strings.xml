@@ -2,6 +2,7 @@
   <string name="app_name">Stop Smoking</string>
   <string name="home_title">Home</string>
   <string name="daily_cigarettes_title">Daily Cigarettes</string>
+  <string name="daily_cigarettes_details_title">Cigarettes smoked at %1$s</string>
 
   <string name="smoked_a_cigarette_at">Smoked a cigarette at:</string>
   <string name="last_cigarette_minutes">Last cigarette (minutes):</string>

@@ -5,6 +5,7 @@ import neuro.stop.smoking.data.di.daoModule
 import neuro.stop.smoking.data.di.databaseModule
 import neuro.stop.smoking.data.di.repositoryModule
 import neuro.stop.smoking.presentation.di.presentationMappersModule
+import neuro.stop.smoking.presentation.di.presentationModule
 import neuro.stop.smoking.presentation.di.useCaseModule
 import neuro.stop.smoking.presentation.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
@@ -16,6 +17,7 @@ class StopSmokingApplication : Application() {
 
 		startKoin {
 			modules(viewModelModule)
+			modules(presentationModule)
 			modules(useCaseModule)
 			modules(repositoryModule)
 			modules(daoModule)
