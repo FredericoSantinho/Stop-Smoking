@@ -1,19 +1,21 @@
 package neuro.stop.smoking.domain.usecase
 
-import kotlinx.coroutines.*
-import kotlinx.coroutines.test.*
+import kotlinx.coroutines.test.runTest
 import neuro.stop.smoking.domain.repository.NewSmokedCigaretteIdRepository
 import neuro.stop.smoking.domain.repository.SaveSmokedCigaretteRepository
 import neuro.stop.smoking.domain.test.mocks.smokedCigaretteDtoMock
 import org.junit.Test
-import org.mockito.kotlin.*
+import org.mockito.kotlin.mock
+import org.mockito.kotlin.times
+import org.mockito.kotlin.verify
+import org.mockito.kotlin.verifyNoInteractions
+import org.mockito.kotlin.whenever
 
 /**
  * Example local unit test, which will execute on the development machine (host).
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
-@OptIn(ExperimentalCoroutinesApi::class)
 class SaveSmokedCigaretteUseCaseImplTest {
 
 	@Test

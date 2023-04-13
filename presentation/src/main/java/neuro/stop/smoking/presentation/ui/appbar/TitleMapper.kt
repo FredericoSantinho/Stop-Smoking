@@ -8,6 +8,8 @@ import neuro.stop.smoking.presentation.viewmodel.appbar.Title.EmptyTitle
 import neuro.stop.smoking.presentation.viewmodel.daily.cigarettes.DailyCigarettesTitle
 import neuro.stop.smoking.presentation.viewmodel.daily.cigarettes.details.DailyCigarettesDetailsTitle
 import neuro.stop.smoking.presentation.viewmodel.home.HomeTitle
+import neuro.stop.smoking.presentation.viewmodel.settings.SettingsTitle
+import neuro.stop.smoking.presentation.viewmodel.settings.change.start.day.ChangeStartOfDayTitle
 
 @Composable
 fun Title.toPresentation(): String {
@@ -19,6 +21,9 @@ fun Title.toPresentation(): String {
 			id = R.string.daily_cigarettes_details_title,
 			date
 		)
+
+		is ChangeStartOfDayTitle -> stringResource(id = R.string.change_start_of_day)
+		is SettingsTitle -> stringResource(id = R.string.settings)
 
 		else -> {
 			throw java.lang.IllegalArgumentException("Mapping not implemented for class ${this.javaClass}!")

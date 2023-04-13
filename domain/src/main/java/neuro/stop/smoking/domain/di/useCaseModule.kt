@@ -14,6 +14,8 @@ import neuro.stop.smoking.domain.usecase.RemoveSmokedCigaretteUseCase
 import neuro.stop.smoking.domain.usecase.RemoveSmokedCigaretteUseCaseImpl
 import neuro.stop.smoking.domain.usecase.SaveSmokedCigaretteUseCase
 import neuro.stop.smoking.domain.usecase.SaveSmokedCigaretteUseCaseImpl
+import neuro.stop.smoking.domain.usecase.SetStartOfDayUseCase
+import neuro.stop.smoking.domain.usecase.SetStartOfDayUseCaseImpl
 import org.koin.dsl.module
 
 val useCaseModule = module {
@@ -24,6 +26,7 @@ val useCaseModule = module {
 	factory<ObserveDailySmokedCigarettesUseCase> {
 		ObserveDailySmokedCigarettesUseCaseImpl(get(), get(), get())
 	}
+	factory<SetStartOfDayUseCase> { SetStartOfDayUseCaseImpl(get()) }
 	factory<ObserveStartOfCurrentDayUseCase> { ObserveStartOfCurrentDayUseCaseImpl(get()) }
 	factory<GetCurrentTimeMillisUseCase> { GetCurrentTimeMillisUseCaseImpl() }
 }

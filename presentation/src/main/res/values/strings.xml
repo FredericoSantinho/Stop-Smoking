@@ -3,6 +3,7 @@
   <string name="home_title">Home</string>
   <string name="daily_cigarettes_title">Daily Cigarettes</string>
   <string name="daily_cigarettes_details_title">Cigarettes smoked at %1$s</string>
+  <string name="settings">Settings</string>
 
   <string name="smoked_a_cigarette_at">Smoked a cigarette at:</string>
   <string name="last_cigarette_minutes">Last cigarette (minutes):</string>
@@ -10,6 +11,12 @@
   <string name="smoke">Smoke</string>
 
   <string name="ok">OK</string>
+
+  <!-- Settings -->
+  <string name="change_start_of_day">Change start of day</string>
+  <!-- Change day start time -->
+  <string name="error_getting_start_of_day">error getting start of day!</string>
+  <string name="error_setting_start_of_day">error setting start of day!</string>
 
   <!-- Error -->
   <string name="error_title">Error!</string>
