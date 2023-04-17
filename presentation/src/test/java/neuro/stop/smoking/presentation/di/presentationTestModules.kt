@@ -6,6 +6,7 @@ import neuro.stop.smoking.data.di.test.memoryDatabaseModule
 
 val presentationTestModules = listOf(
 	viewModelModule,
+	presentationModule,
 	useCaseModule,
 	repositoryModule,
 	daoModule,
