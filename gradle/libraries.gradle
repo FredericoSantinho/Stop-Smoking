@@ -20,7 +20,7 @@ ver.ktx_lifecycle_runtime = "2.6.1"
 lib.google = ["androidx.core:core-ktx:$ver.ktx",
               "androidx.lifecycle:lifecycle-runtime-ktx:$ver.ktx_lifecycle_runtime",]
 
-ver.compose_ui = "1.4.0"
+ver.compose_ui = "1.4.1"
 ver.activity_compose = "1.7.0"
 ver.material = "1.4.0"
 ver.composeNavigation = "2.5.3"
@@ -56,7 +56,7 @@ lib.koinTest = "io.insert-koin:koin-test-junit4:$ver.koin"
 ver.slf4jNop = "2.0.7"
 lib.slf4jNop = "org.slf4j:slf4j-nop:$ver.slf4jNop"
 
-ver.mockito = "5.2.0"
+ver.mockito = "5.3.1"
 ver.mockito_kotlin = "4.1.0"
 lib.mockito = ["org.mockito:mockito-core:$ver.mockito",
                "org.mockito.kotlin:mockito-kotlin:$ver.mockito_kotlin"]
