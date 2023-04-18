@@ -1,6 +1,7 @@
 package neuro.stop.smoking.presentation.di
 
 import neuro.stop.smoking.presentation.viewmodel.appbar.AppBarViewModelImpl
+import neuro.stop.smoking.presentation.viewmodel.application.StopSmokingApplicationViewModel
 import neuro.stop.smoking.presentation.viewmodel.common.datetime.TimeTextMapper
 import neuro.stop.smoking.presentation.viewmodel.common.datetime.TimeTextMapperImpl
 import neuro.stop.smoking.presentation.viewmodel.common.formatter.NumberFormater
@@ -15,6 +16,7 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val viewModelModule = module {
+	factory { StopSmokingApplicationViewModel(get(), get()) }
 	single { AppBarViewModelImpl() }
 	viewModel { MainViewModelImpl() }
 	viewModel {
