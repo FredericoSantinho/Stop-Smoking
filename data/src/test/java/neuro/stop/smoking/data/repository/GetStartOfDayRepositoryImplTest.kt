@@ -1,5 +1,6 @@
 package neuro.stop.smoking.data.repository
 
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runTest
 import neuro.stop.smoking.data.dao.StartOfDayDao
 import neuro.stop.smoking.data.test.mocks.roomStartOfDayMock
@@ -26,15 +27,17 @@ class GetStartOfDayRepositoryImplTest {
 	}
 
 	@Test
-	fun testNullStartOfDay() = runTest {
+	fun testNullStartOfDay() {
 		val startOfDayDao = mock<StartOfDayDao>()
 
 		val getStartOfDayRepository = GetStartOfDayRepositoryImpl(startOfDayDao)
 
-		whenever(startOfDayDao.getStartOfDay()).thenReturn(null)
+		runBlocking {
+			whenever(startOfDayDao.getStartOfDay()).thenReturn(null)
 
-		val startOfDayDto = getStartOfDayRepository.getStartOfDay()
+			val startOfDayDto = getStartOfDayRepository.getStartOfDay()
 
-		assertNull(startOfDayDto)
+			assertNull(startOfDayDto)
+		}
 	}
 }

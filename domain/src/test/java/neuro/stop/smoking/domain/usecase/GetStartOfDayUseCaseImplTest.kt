@@ -1,5 +1,6 @@
 package neuro.stop.smoking.domain.usecase
 
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runTest
 import neuro.stop.smoking.domain.repository.GetStartOfDayRepository
 import neuro.stop.smoking.domain.test.mocks.startOfDayDtoMock
@@ -27,16 +28,18 @@ class GetStartOfDayUseCaseImplTest {
 	}
 
 	@Test
-	fun testNullStartOfDay() = runTest {
+	fun testNullStartOfDay() {
 		val getStartOfDayRepository = mock<GetStartOfDayRepository>()
 
 		val getStartOfDayUseCase = GetStartOfDayUseCaseImpl(getStartOfDayRepository)
 
-		whenever(getStartOfDayRepository.getStartOfDay()).thenReturn(null)
+		runBlocking {
+			whenever(getStartOfDayRepository.getStartOfDay()).thenReturn(null)
 
-		val startOfDay = getStartOfDayUseCase.getStartOfDay(newCalendar())
+			val startOfDay = getStartOfDayUseCase.getStartOfDay(newCalendar())
 
-		assertEquals(expectedStartOfDay(0).time, startOfDay.time)
+			assertEquals(expectedStartOfDay(0).time, startOfDay.time)
+		}
 	}
 
 	private fun newCalendar(): Calendar {
