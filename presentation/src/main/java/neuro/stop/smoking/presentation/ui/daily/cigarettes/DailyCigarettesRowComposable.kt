@@ -23,7 +23,7 @@ fun DailyCigarettesRowComposable(
 	modifier: Modifier = Modifier,
 	onSmokedCigarettesPerDayClick: (smokedCigarettesPerDay: String) -> Unit
 ) {
-	Card(modifier = modifier
+	Card(elevation = 5.dp, modifier = modifier
 		.clickable {
 			onSmokedCigarettesPerDayClick(smokedCigarettesPerDay.date)
 		}

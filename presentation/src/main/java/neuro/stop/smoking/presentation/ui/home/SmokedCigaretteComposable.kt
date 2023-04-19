@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.Card
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
@@ -30,61 +31,63 @@ fun SmokedCigaretteComposable(
 	modifier: Modifier = Modifier,
 	onRemoveCigaretteClick: (smokedCigaretteId: Long) -> Unit
 ) {
-	ConstraintLayout(
-		modifier = modifier
-			.testTag(SmokedCigaretteComposableTags.SMOKED_CIGARETTE_COMPOSABLE + smokedCigaretteModel.smokedCigaretteId)
-			.fillMaxWidth()
-	) {
-		val (cigaretteImageC, smokedACigaretteAtC, removeC) = createRefs()
+	Card(elevation = 5.dp) {
+		ConstraintLayout(
+			modifier = modifier
+				.testTag(SmokedCigaretteComposableTags.SMOKED_CIGARETTE_COMPOSABLE + smokedCigaretteModel.smokedCigaretteId)
+				.fillMaxWidth()
+		) {
+			val (cigaretteImageC, smokedACigaretteAtC, removeC) = createRefs()
 
-		Image(
-			modifier = Modifier
-				.constrainAs(cigaretteImageC) {
-					linkTo(parent.top, parent.bottom)
-					start.linkTo(parent.start, margin = 16.dp)
-				}
-				.size(24.dp)
-				.testTag(SmokedCigaretteComposableTags.SMOKED_CIGARETTE_IMAGE + smokedCigaretteModel.smokedCigaretteId),
-			painter = rememberAsyncImagePainter(cigaretteUrl),
-			contentDescription = null,
-			contentScale = ContentScale.Crop
-		)
-		Row(Modifier
-			.constrainAs(smokedACigaretteAtC) {
-				linkTo(parent.start, parent.end)
-				linkTo(parent.top, parent.bottom)
-			}
-		) {
-			Text(
+			Image(
 				modifier = Modifier
-					.padding(start = 16.dp)
-					.testTag(SmokedCigaretteComposableTags.SMOKED_CIGARETTE_AT_TEXT + smokedCigaretteModel.smokedCigaretteId),
-				text = stringResource(id = R.string.smoked_a_cigarette_at)
-			)
-			Text(
-				modifier = Modifier
-					.padding(start = 16.dp)
-					.testTag(SmokedCigaretteComposableTags.SMOKED_CIGARETTE_AT_TIME + smokedCigaretteModel.smokedCigaretteId),
-				text = smokedCigaretteModel.time
-			)
-		}
-		IconButton(
-			onClick = {
-				onRemoveCigaretteClick(smokedCigaretteModel.smokedCigaretteId)
-			},
-			modifier = Modifier
-				.constrainAs(removeC) {
-					end.linkTo(parent.end)
-				}
-				.padding(start = 8.dp)
-				.testTag(SmokedCigaretteComposableTags.SMOKED_CIGARETTE_REMOVE_ICON_BUTTON + smokedCigaretteModel.smokedCigaretteId)
-		) {
-			Icon(
-				modifier = Modifier.testTag(SmokedCigaretteComposableTags.SMOKED_CIGARETTE_REMOVE_ICON + smokedCigaretteModel.smokedCigaretteId),
-				painter = painterResource(id = R.drawable.ic_remove_smoked_cigarette_24),
+					.constrainAs(cigaretteImageC) {
+						linkTo(parent.top, parent.bottom)
+						start.linkTo(parent.start, margin = 16.dp)
+					}
+					.size(24.dp)
+					.testTag(SmokedCigaretteComposableTags.SMOKED_CIGARETTE_IMAGE + smokedCigaretteModel.smokedCigaretteId),
+				painter = rememberAsyncImagePainter(cigaretteUrl),
 				contentDescription = null,
-				tint = MaterialTheme.colors.onBackground
+				contentScale = ContentScale.Crop
 			)
+			Row(Modifier
+				.constrainAs(smokedACigaretteAtC) {
+					linkTo(parent.start, parent.end)
+					linkTo(parent.top, parent.bottom)
+				}
+			) {
+				Text(
+					modifier = Modifier
+						.padding(start = 16.dp)
+						.testTag(SmokedCigaretteComposableTags.SMOKED_CIGARETTE_AT_TEXT + smokedCigaretteModel.smokedCigaretteId),
+					text = stringResource(id = R.string.smoked_a_cigarette_at)
+				)
+				Text(
+					modifier = Modifier
+						.padding(start = 16.dp)
+						.testTag(SmokedCigaretteComposableTags.SMOKED_CIGARETTE_AT_TIME + smokedCigaretteModel.smokedCigaretteId),
+					text = smokedCigaretteModel.time
+				)
+			}
+			IconButton(
+				onClick = {
+					onRemoveCigaretteClick(smokedCigaretteModel.smokedCigaretteId)
+				},
+				modifier = Modifier
+					.constrainAs(removeC) {
+						end.linkTo(parent.end)
+					}
+					.padding(start = 8.dp)
+					.testTag(SmokedCigaretteComposableTags.SMOKED_CIGARETTE_REMOVE_ICON_BUTTON + smokedCigaretteModel.smokedCigaretteId)
+			) {
+				Icon(
+					modifier = Modifier.testTag(SmokedCigaretteComposableTags.SMOKED_CIGARETTE_REMOVE_ICON + smokedCigaretteModel.smokedCigaretteId),
+					painter = painterResource(id = R.drawable.ic_remove_smoked_cigarette_24),
+					contentDescription = null,
+					tint = MaterialTheme.colors.onBackground
+				)
+			}
 		}
 	}
 }

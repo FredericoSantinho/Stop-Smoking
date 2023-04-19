@@ -1,21 +1,16 @@
 package neuro.stop.smoking.presentation.ui.home
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import neuro.stop.smoking.presentation.model.SmokedCigaretteModel
 import neuro.stop.smoking.presentation.ui.theme.StopSmokingTheme
 
@@ -40,13 +35,6 @@ fun SmokedCigarettesComposable(
 					smokedCigaretteModel,
 					cigaretteUrl.value
 				) { onRemoveCigaretteClick(it) }
-				Divider(
-					modifier = Modifier
-						.padding(start = 4.dp, end = 4.dp)
-						.testTag(SmokedCigarettesComposableTags.SMOKED_CIGARETTE_DIVIDER + smokedCigaretteModel.smokedCigaretteId),
-					thickness = 1.dp,
-					color = Color.Gray
-				)
 			}
 		}
 	}
