@@ -315,8 +315,6 @@ internal class HomeComposableAcceptanceTest {
 		for (i in 1..3) {
 			val onSmokedCigaretteComposable =
 				composeTestRule.onNodeWithTag(SmokedCigaretteComposableTags.SMOKED_CIGARETTE_COMPOSABLE + i)
-			val onSmokedCigaretteDivider =
-				composeTestRule.onNodeWithTag(SmokedCigarettesComposableTags.SMOKED_CIGARETTE_DIVIDER + i)
 			val onSmokedCigaretteImage =
 				composeTestRule.onNodeWithTag(SmokedCigaretteComposableTags.SMOKED_CIGARETTE_IMAGE + i)
 			val onSmokedCigaretteAtText =
@@ -332,7 +330,6 @@ internal class HomeComposableAcceptanceTest {
 				)
 
 			onSmokedCigaretteComposable.assertIsDisplayed()
-			onSmokedCigaretteDivider.assertIsDisplayed()
 			onSmokedCigaretteImage.assertIsDisplayed()
 			onSmokedCigaretteAtText.assertIsDisplayed()
 			onSmokedCigaretteAtTime.assertIsDisplayed()
@@ -346,8 +343,6 @@ internal class HomeComposableAcceptanceTest {
 	private fun assertNoMoreSmokedCigarettesWhereAdded() {
 		val onSmokedCigaretteComposable =
 			composeTestRule.onNodeWithTag(SmokedCigaretteComposableTags.SMOKED_CIGARETTE_COMPOSABLE + 4)
-		val onSmokedCigaretteDivider =
-			composeTestRule.onNodeWithTag(SmokedCigarettesComposableTags.SMOKED_CIGARETTE_DIVIDER + 4)
 		val onSmokedCigaretteImage =
 			composeTestRule.onNodeWithTag(SmokedCigaretteComposableTags.SMOKED_CIGARETTE_IMAGE + 4)
 		val onSmokedCigaretteAtText =
@@ -363,7 +358,6 @@ internal class HomeComposableAcceptanceTest {
 			)
 
 		onSmokedCigaretteComposable.assertDoesNotExist()
-		onSmokedCigaretteDivider.assertDoesNotExist()
 		onSmokedCigaretteImage.assertDoesNotExist()
 		onSmokedCigaretteAtText.assertDoesNotExist()
 		onSmokedCigaretteAtTime.assertDoesNotExist()

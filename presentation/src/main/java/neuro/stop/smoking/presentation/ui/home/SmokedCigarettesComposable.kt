@@ -46,12 +46,6 @@ fun SmokedCigarettesComposable(
 	}
 }
 
-class SmokedCigarettesComposableTags {
-	companion object {
-		const val SMOKED_CIGARETTE_DIVIDER = "smokedCigaretteDivider"
-	}
-}
-
 @Preview
 @Composable
 fun PreviewSmokedCigarettesComposable() {
