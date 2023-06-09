@@ -4,6 +4,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
@@ -33,7 +34,8 @@ class DailyCigarettesViewModelImpl(
 
 	override val title: State<Title> = mutableStateOf(DailyCigarettesTitle)
 
-	private val _smokedCigarettesByDay = mutableStateOf(emptyList<SmokedCigarettesPerDay>())
+	private val _smokedCigarettesByDay =
+		mutableStateOf(emptyList<SmokedCigarettesPerDay>().toImmutableList())
 	override val smokedCigarettesPerDay = _smokedCigarettesByDay.asState()
 
 	init {
@@ -41,7 +43,7 @@ class DailyCigarettesViewModelImpl(
 			observeDailySmokedCigarettesUseCase.observeDailySmokedCigarettes()
 				.map { it.toPresentation() }
 				.flowOn(coroutineDispatcher)
-				.onEach { _smokedCigarettesByDay.value = it }
+				.onEach { _smokedCigarettesByDay.value = it.toImmutableList() }
 				.catch { _uiState.value = UiState.ShowErrorLoadingData }
 				.collect()
 		}

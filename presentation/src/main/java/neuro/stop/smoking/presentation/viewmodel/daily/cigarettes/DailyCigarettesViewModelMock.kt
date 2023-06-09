@@ -2,6 +2,8 @@ package neuro.stop.smoking.presentation.viewmodel.daily.cigarettes
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.toImmutableList
 import neuro.stop.smoking.domain.test.mocks.smokedCigaretteDtoMockList
 import neuro.stop.smoking.presentation.viewmodel.appbar.Title
 import neuro.stop.smoking.presentation.viewmodel.common.asState
@@ -14,8 +16,8 @@ class DailyCigarettesViewModelMock : DailyCigarettesViewModel {
 
 	override val title: State<Title> = mutableStateOf(DailyCigarettesTitle)
 
-	override val smokedCigarettesPerDay: State<List<SmokedCigarettesPerDay>> =
-		mutableStateOf(buildSmokedCigarettesPerDayList())
+	override val smokedCigarettesPerDay: State<ImmutableList<SmokedCigarettesPerDay>> =
+		mutableStateOf(buildSmokedCigarettesPerDayList().toImmutableList())
 
 	override fun onComposition() {
 	}

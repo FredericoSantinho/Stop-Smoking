@@ -13,6 +13,7 @@ dependencies {
   implementation lib.rxKotlin
   implementation lib.rxAndroid
   implementation lib.constraint_layout_compose
+  implementation lib.kotlin_collections_immutable
 
   testImplementation lib.kotlin_coroutines_test
   testImplementation lib.junit4

@@ -1,6 +1,7 @@
 package neuro.stop.smoking.presentation.viewmodel.daily.cigarettes
 
 import androidx.compose.runtime.State
+import kotlinx.collections.immutable.ImmutableList
 import neuro.stop.smoking.presentation.viewmodel.appbar.Title
 import neuro.stop.smoking.presentation.viewmodel.daily.cigarettes.model.SmokedCigarettesPerDay
 
@@ -10,7 +11,7 @@ interface DailyCigarettesViewModel {
 
 	val title: State<Title>
 
-	val smokedCigarettesPerDay: State<List<SmokedCigarettesPerDay>>
+	val smokedCigarettesPerDay: State<ImmutableList<SmokedCigarettesPerDay>>
 
 	fun onComposition()
 	fun onSmokedCigarettesPerDayClick(date: String)

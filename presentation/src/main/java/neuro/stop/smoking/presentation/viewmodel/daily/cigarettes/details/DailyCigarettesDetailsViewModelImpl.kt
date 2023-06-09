@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
@@ -46,7 +47,8 @@ class DailyCigarettesDetailsViewModelImpl(
 		mutableStateOf(savedStateHandle.get<String>(DailyCigarettesDetailsActivity.DATE)!!)
 	override val title: State<Title> = mutableStateOf(DailyCigarettesDetailsTitle(date.value))
 
-	private val _smokedCigarettes = mutableStateOf(emptyList<SmokedCigaretteModel>())
+	private val _smokedCigarettes =
+		mutableStateOf(emptyList<SmokedCigaretteModel>().toImmutableList())
 	override val smokedCigarettes = _smokedCigarettes.asState()
 
 	init {
@@ -63,7 +65,9 @@ class DailyCigarettesDetailsViewModelImpl(
 						startOfDayPlusOneDay.timeInMillis
 					)
 				}.flowOn(coroutineDispatcher)
-				.onEach { _smokedCigarettes.value = smokedCigaretteModelMapper.toPresentation(it) }.catch {
+				.onEach {
+					_smokedCigarettes.value = smokedCigaretteModelMapper.toPresentation(it).toImmutableList()
+				}.catch {
 					_uiState.value = UiState.ShowErrorLoadingSmokedCigarettes
 				}.collect()
 		}

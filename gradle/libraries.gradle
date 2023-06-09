@@ -33,6 +33,10 @@ lib.google_compose = ["androidx.activity:activity-compose:$ver.activity_compose"
 lib.compose_ui_test_junit4 = ["androidx.compose.ui:ui-test-junit4:$ver.compose_ui"]
 lib.compose_ui_test_manifest = "androidx.compose.ui:ui-test-manifest:$ver.compose_ui"
 
+ver.kotlin_collections_immutable = "0.3.5"
+lib.kotlin_collections_immutable =
+    "org.jetbrains.kotlinx:kotlinx-collections-immutable-jvm:$ver.kotlin_collections_immutable"
+
 ver.androidx_core_testing = "2.2.0"
 lib.androidx_core_testing = "androidx.arch.core:core-testing:$ver.androidx_core_testing"
 

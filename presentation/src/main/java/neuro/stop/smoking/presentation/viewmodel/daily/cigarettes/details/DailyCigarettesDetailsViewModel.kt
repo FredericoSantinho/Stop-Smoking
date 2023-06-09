@@ -1,6 +1,7 @@
 package neuro.stop.smoking.presentation.viewmodel.daily.cigarettes.details
 
 import androidx.compose.runtime.State
+import kotlinx.collections.immutable.ImmutableList
 import neuro.stop.smoking.presentation.model.SmokedCigaretteModel
 import neuro.stop.smoking.presentation.viewmodel.appbar.Title
 
@@ -11,7 +12,7 @@ interface DailyCigarettesDetailsViewModel {
 
 	val date: State<String>
 	val title: State<Title>
-	val smokedCigarettes: State<List<SmokedCigaretteModel>>
+	val smokedCigarettes: State<ImmutableList<SmokedCigaretteModel>>
 
 	fun onRemoveCigaretteClick(smokedCigaretteId: Long)
 }
