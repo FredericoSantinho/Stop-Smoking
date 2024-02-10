@@ -3,14 +3,19 @@ package neuro.stop.smoking.presentation.ui.home
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.Button
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
@@ -30,6 +35,8 @@ import neuro.stop.smoking.presentation.ui.theme.StopSmokingTheme
 fun HomeFooterComposable(
 	smokedCigarettesNumber: State<String>,
 	lastCigaretteTimeMinutes: State<String>,
+	projectionCigarettes: State<String>,
+	projectionCost: State<String>,
 	modifier: Modifier = Modifier,
 	onSmokeButtonClick: () -> Unit
 ) {
@@ -48,6 +55,27 @@ fun HomeFooterComposable(
 				onSmokeButtonClick
 			)
 		}
+		Projections(projectionCigarettes, projectionCost)
+	}
+}
+
+@Composable
+private fun Projections(
+	projectionCigarettes: State<String>,
+	projectionCost: State<String>
+) {
+	Column(horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()) {
+		Text(text = "Projeções", style = MaterialTheme.typography.body1)
+		Spacer(modifier = Modifier.height(8.dp))
+		Row {
+			Spacer(modifier = Modifier.width(16.dp))
+			Text(text = "Cigarros: ", style = MaterialTheme.typography.body1)
+			Text(text = projectionCigarettes.value, style = MaterialTheme.typography.body1)
+			Spacer(modifier = Modifier.width(16.dp))
+			Text(text = "Custo: ", style = MaterialTheme.typography.body1)
+			Text(text = projectionCost.value, style = MaterialTheme.typography.body1)
+		}
+		Spacer(modifier = Modifier.height(16.dp))
 	}
 }
 
@@ -127,12 +155,16 @@ class HomeFooterComposableTags {
 fun PreviewHomeFooterComposable() {
 	val smokedCigarettesNumber = remember { mutableStateOf("3") }
 	val lastCigaretteTimeMinutes = remember { mutableStateOf("10") }
+	val projectionCigarettes = remember { mutableStateOf("10") }
+	val projectionCost = remember { mutableStateOf("5,20€") }
 	val onSmokeButtonClick = {}
 
 	StopSmokingTheme {
 		HomeFooterComposable(
 			smokedCigarettesNumber,
 			lastCigaretteTimeMinutes,
+			projectionCigarettes,
+			projectionCost,
 			onSmokeButtonClick = onSmokeButtonClick
 		)
 	}

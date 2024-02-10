@@ -13,6 +13,8 @@ interface HomeViewModel {
 	val smokedCigarettes: State<List<SmokedCigaretteModel>>
 	val smokedCigarettesNumber: State<String>
 	val lastCigaretteTimeMinutes: State<String>
+	val projectionCigarettes: State<String>
+	val projectionCost: State<String>
 
 	fun onComposition()
 	fun onRemoveCigaretteClick(smokedCigaretteId: Long)

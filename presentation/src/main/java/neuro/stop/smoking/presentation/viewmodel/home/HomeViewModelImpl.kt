@@ -19,6 +19,7 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import neuro.expenses.register.viewmodel.common.formatter.DecimalFormatter
 import neuro.stop.smoking.domain.dto.SmokedCigaretteDto
 import neuro.stop.smoking.domain.usecase.GetCurrentTimeMillisUseCase
 import neuro.stop.smoking.domain.usecase.ObserveSmokedCigarettesUseCase
@@ -41,6 +42,7 @@ class HomeViewModelImpl(
 	private val observeStartOfCurrentDayUseCase: ObserveStartOfCurrentDayUseCase,
 	private val getCurrentTimeMillisUseCase: GetCurrentTimeMillisUseCase,
 	private val smokedCigaretteModelMapper: SmokedCigaretteModelMapper,
+	private val decimalFormatter: DecimalFormatter,
 	private val appBarViewModel: AppBarViewModel,
 	private val coroutineDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : ViewModel(), HomeViewModel {
@@ -58,6 +60,10 @@ class HomeViewModelImpl(
 	override val smokedCigarettesNumber = _smokedCigarettesNumber.asState()
 	private val _lastCigaretteTimeMinutes = mutableStateOf("")
 	override val lastCigaretteTimeMinutes = _lastCigaretteTimeMinutes.asState()
+	private val _projectionCigarettes = mutableStateOf("")
+	override val projectionCigarettes = _projectionCigarettes.asState()
+	private val _projectionCost = mutableStateOf("")
+	override val projectionCost = _projectionCost.asState()
 
 	init {
 		viewModelScope.launch {
@@ -126,12 +132,38 @@ class HomeViewModelImpl(
 			if (it.isNotEmpty()) {
 				_lastCigaretteTimeMinutes.value = getLastCigaretteTimeMinutes(it[0])
 				setLastCigaretteTimeIncrementer()
+				setEstimations(it)
 			} else {
 				_lastCigaretteTimeMinutes.value = ""
 			}
 		}
 			.catch { _uiState.showErrorLoadingData() }
 	}
+
+	private fun setEstimations(smokedCigaretteDtos: List<SmokedCigaretteDto>) {
+		val projectionCigarettes = if (smokedCigaretteDtos.size > 1) {
+			(smokedCigaretteDtos.size.toDouble()) / delayBetweenFirstAndLastCigarette(
+				smokedCigaretteDtos
+			) * HOUR_MILLIS * 14
+		} else {
+			0.0
+		}
+		val projectedCost = projectionCigarettes * 5.2 / 20
+
+		_projectionCigarettes.value = projectionCigarettes.toInt().toString()
+		_projectionCost.value = getDayMonthYearProjectionsString(projectedCost)
+	}
+
+	private fun getDayMonthYearProjectionsString(projectedCost: Double): String {
+		val day = decimalFormatter.format(projectedCost) + " €"
+		val month = decimalFormatter.format(projectedCost * 30) + " €"
+		val year = decimalFormatter.format(projectedCost * 365) + " €"
+
+		return "$day | $month | $year"
+	}
+
+	private fun delayBetweenFirstAndLastCigarette(smokedCigaretteDtos: List<SmokedCigaretteDto>): Long =
+		smokedCigaretteDtos[0].timestamp - smokedCigaretteDtos[smokedCigaretteDtos.size - 1].timestamp
 
 	private suspend fun calculateChangeOfDayDelay(): Long {
 		return observeStartOfCurrentDayUseCase.observeStartOfCurrentDay().map {
@@ -175,5 +207,9 @@ class HomeViewModelImpl(
 		val differenceInMinutes = difference / 1000 / 60
 
 		return differenceInMinutes.toString()
+	}
+
+	companion object {
+		const val HOUR_MILLIS = 60 * 60 * 1000
 	}
 }

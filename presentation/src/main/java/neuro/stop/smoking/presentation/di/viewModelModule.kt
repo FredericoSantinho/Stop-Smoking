@@ -1,5 +1,7 @@
 package neuro.stop.smoking.presentation.di
 
+import neuro.expenses.register.viewmodel.common.formatter.DecimalFormatter
+import neuro.expenses.register.viewmodel.common.formatter.DecimalFormatterImpl
 import neuro.stop.smoking.presentation.viewmodel.appbar.AppBarViewModelImpl
 import neuro.stop.smoking.presentation.viewmodel.application.StopSmokingApplicationViewModel
 import neuro.stop.smoking.presentation.viewmodel.common.datetime.TimeTextMapper
@@ -27,6 +29,7 @@ val viewModelModule = module {
 			get(),
 			get(),
 			get(),
+			get(),
 			get<AppBarViewModelImpl>()
 		)
 	}
@@ -34,6 +37,7 @@ val viewModelModule = module {
 	viewModel { ChangeStartOfDayViewModelImpl(get(), get(), get()) }
 	factory<TimeTextMapper> { TimeTextMapperImpl() }
 	factory<NumberFormater> { NumberFormaterImpl() }
+	factory<DecimalFormatter> { DecimalFormatterImpl(2) }
 	viewModel { DailyCigarettesDetailsViewModelImpl(get(), get(), get(), get(), get()) }
 	viewModel { SettingsViewModelImpl() }
 }

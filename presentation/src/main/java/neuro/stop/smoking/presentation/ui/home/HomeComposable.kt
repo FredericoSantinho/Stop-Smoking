@@ -40,6 +40,8 @@ fun HomeComposable(
 		HomeFooterComposable(
 			homeViewModel.smokedCigarettesNumber,
 			homeViewModel.lastCigaretteTimeMinutes,
+			homeViewModel.projectionCigarettes,
+			homeViewModel.projectionCost
 		) { homeViewModel.onSmokeButtonClick() }
 	}
 

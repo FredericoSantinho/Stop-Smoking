@@ -17,6 +17,8 @@ class DummyHomeViewModel : HomeViewModel {
 		mutableStateOf(createSmokedCigaretteModelList())
 	override val smokedCigarettesNumber: State<String> = mutableStateOf("5")
 	override val lastCigaretteTimeMinutes: State<String> = mutableStateOf("12m")
+	override val projectionCigarettes: State<String> = mutableStateOf("10")
+	override val projectionCost: State<String> = mutableStateOf("5,20€")
 
 	override fun onComposition() {
 
