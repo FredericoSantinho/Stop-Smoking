@@ -11,6 +11,10 @@ class HomeUiState {
 		_uiState.value = UiState.Ready
 	}
 
+	fun showRemoveCigaretteConfirmation(smokedCigaretteId: Long) {
+		_uiState.value = UiState.ShowRemoveCigaretteConfirmation(smokedCigaretteId)
+	}
+
 	fun showErrorRemovingSmokedCigarette() {
 		val errorsList = getPreviousErrorsIfNeeded()
 
@@ -53,6 +57,7 @@ class HomeUiState {
 
 	sealed class UiState {
 		object Ready : UiState()
+		data class ShowRemoveCigaretteConfirmation(val smokedCigaretteId: Long) : UiState()
 		data class ShowError(val errorsDescriptions: List<ErrorDescription>) : UiState()
 	}
 

@@ -11,6 +11,8 @@
   <string name="smoke">Smoke</string>
 
   <string name="ok">OK</string>
+  <string name="confirm">Confirm</string>
+  <string name="cancel">Cancel</string>
 
   <!-- Settings -->
   <string name="change_start_of_day">Change start of day</string>

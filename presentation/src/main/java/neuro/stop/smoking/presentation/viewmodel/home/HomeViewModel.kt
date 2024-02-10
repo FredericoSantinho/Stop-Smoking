@@ -16,6 +16,8 @@ interface HomeViewModel {
 
 	fun onComposition()
 	fun onRemoveCigaretteClick(smokedCigaretteId: Long)
+	fun onRemoveCigaretteConfirmationClick(smokedCigaretteId: Long)
+	fun onRemoveCigaretteConfirmationDismiss()
 	fun onSmokeButtonClick()
 	fun onErrorDismiss()
 	fun onErrorOkButtonClick()

@@ -26,6 +26,14 @@ class DummyHomeViewModel : HomeViewModel {
 
 	}
 
+	override fun onRemoveCigaretteConfirmationClick(smokedCigaretteId: Long) {
+
+	}
+
+	override fun onRemoveCigaretteConfirmationDismiss() {
+
+	}
+
 	override fun onSmokeButtonClick() {
 
 	}

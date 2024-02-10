@@ -70,11 +70,24 @@ class HomeViewModelImpl(
 	}
 
 	override fun onRemoveCigaretteClick(smokedCigaretteId: Long) {
+		_uiState.showRemoveCigaretteConfirmation(smokedCigaretteId)
+	}
+
+	override fun onRemoveCigaretteConfirmationClick(smokedCigaretteId: Long) {
 		viewModelScope.launch(CoroutineExceptionHandler { _, throwable -> _uiState.showErrorRemovingSmokedCigarette() }) {
 			launch(coroutineDispatcher) {
-				removeSmokedCigaretteUseCase.removeSmokedCigarette(smokedCigaretteId)
+				removeSmokedCigarette(smokedCigaretteId)
+				_uiState.ready()
 			}
 		}
+	}
+
+	override fun onRemoveCigaretteConfirmationDismiss() {
+		_uiState.ready()
+	}
+
+	private suspend fun removeSmokedCigarette(smokedCigaretteId: Long) {
+		removeSmokedCigaretteUseCase.removeSmokedCigarette(smokedCigaretteId)
 	}
 
 	override fun onSmokeButtonClick() {
