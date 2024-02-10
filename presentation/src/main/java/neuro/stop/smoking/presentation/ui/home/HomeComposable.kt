@@ -34,7 +34,8 @@ fun HomeComposable(
 	Column(modifier = Modifier.fillMaxHeight(), verticalArrangement = Arrangement.Bottom) {
 		SmokedCigarettesComposable(
 			homeViewModel.smokedCigarettes,
-			homeViewModel.cigaretteUrl
+			homeViewModel.cigaretteUrl,
+			modifier = Modifier.weight(1.0f)
 		) { smokedCigaretteId -> homeViewModel.onRemoveCigaretteClick(smokedCigaretteId) }
 		HomeFooterComposable(
 			homeViewModel.smokedCigarettesNumber,
