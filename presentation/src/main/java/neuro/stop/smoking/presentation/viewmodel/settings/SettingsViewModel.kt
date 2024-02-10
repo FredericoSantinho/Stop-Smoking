@@ -14,8 +14,8 @@ interface SettingsViewModel {
 }
 
 sealed class UiEvent {
-	object NavigateBack : UiEvent()
-	object NavigateToChangeStartOfDay : UiEvent()
+	data object NavigateBack : UiEvent()
+	data object NavigateToChangeStartOfDay : UiEvent()
 }
 
 object SettingsTitle : Title()

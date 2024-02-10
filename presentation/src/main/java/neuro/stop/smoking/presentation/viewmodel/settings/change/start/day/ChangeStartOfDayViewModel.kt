@@ -21,18 +21,18 @@ interface ChangeStartOfDayViewModel {
 }
 
 sealed class UiState {
-	object Ready : UiState()
-	object ShowTimePicker : UiState()
+	data object Ready : UiState()
+	data object ShowTimePicker : UiState()
 	data class Error(val errorDescription: ErrorDescription) : UiState()
 
 	sealed class ErrorDescription {
-		object ErrorGettingStartOfDay : ErrorDescription()
-		object ErrorSettingStartOfDay : ErrorDescription()
+		data object ErrorGettingStartOfDay : ErrorDescription()
+		data object ErrorSettingStartOfDay : ErrorDescription()
 	}
 }
 
 sealed class UiEvent {
-	object NavigateBack : UiEvent()
+	data object NavigateBack : UiEvent()
 }
 
 object ChangeStartOfDayTitle : Title()

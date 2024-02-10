@@ -23,8 +23,8 @@ sealed class UiEvent {
 }
 
 sealed class UiState {
-	object Ready : UiState()
-	object ShowErrorLoadingData : UiState()
+	data object Ready : UiState()
+	data object ShowErrorLoadingData : UiState()
 }
 
 object DailyCigarettesTitle : Title()

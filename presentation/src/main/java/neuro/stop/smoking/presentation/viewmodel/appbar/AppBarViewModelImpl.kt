@@ -23,8 +23,8 @@ class AppBarViewModelImpl : AppBarViewModel {
 }
 
 sealed class UiEvent {
-	object NavigateToSettings : UiEvent()
-	object NavigateUp : UiEvent()
+	data object NavigateToSettings : UiEvent()
+	data object NavigateUp : UiEvent()
 }
 
 abstract class Title {
