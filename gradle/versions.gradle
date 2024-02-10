@@ -2,4 +2,4 @@ ext {
   ver = [:]
 }
 
-ver.kotlin_compiler_extension = "1.4.3"
+ver.kotlin_compiler_extension = "1.5.8-dev-k1.9.22-42b6ec2b037"
